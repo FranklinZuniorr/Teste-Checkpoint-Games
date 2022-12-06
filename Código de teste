@@ -1,0 +1,179 @@
+import java.util.concurrent.TimeUnit;
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
+import org.openqa.selenium.By;
+import org.openqa.selenium.Dimension;
+import org.openqa.selenium.ElementNotInteractableException;
+import org.openqa.selenium.InvalidSelectorException;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class TesteCursoSenai {
+	
+	public static final String ANSI_RESET = "\u001B[0m";
+	public static final String ANSI_BLACK = "\u001B[30m";
+	public static final String ANSI_RED = "\u001B[31m";
+	public static final String ANSI_GREEN = "\u001B[32m";
+	public static final String ANSI_YELLOW = "\u001B[33m";
+	public static final String ANSI_BLUE = "\u001B[34m";
+	public static final String ANSI_PURPLE = "\u001B[35m";
+	public static final String ANSI_CYAN = "\u001B[36m";
+	public static final String ANSI_WHITE = "\u001B[37m";
+
+	private WebDriver driver;
+	
+	@Before
+	
+	public void ConfigurarTeste() {
+		
+		System.setProperty("webdriver.chrome.driver", "C:\\Program Files\\ChromeDriver\\chromedriver108.exe");
+		
+		driver = new ChromeDriver();
+		driver.manage().window().maximize();
+		driver.get("http://localhost:4200/home");
+
+	}
+	
+	@Test
+	
+	public void Testes() {
+		
+		String texto = "";
+		
+		try {
+			
+			System.out.println(ANSI_YELLOW + "PRIMEIRA SITUAÇÃO INICIADA!");
+			
+			texto = "stdir";
+			driver.findElement(By.id(texto)).click();
+			System.out.println(ANSI_GREEN + "✅ Clicou - id: " + texto);
+			
+			Thread.sleep(1000);
+			
+			texto = "stdir";
+			driver.findElement(By.id(texto)).click();
+			System.out.println(ANSI_GREEN + "✅ Clicou - id: " + texto);
+			
+			Thread.sleep(1000);
+			
+			texto = "ct2";
+			driver.findElement(By.id(texto)).click();
+			System.out.println(ANSI_GREEN + "✅ Clicou - id: " + texto);
+			
+			Thread.sleep(1000);
+			
+			texto = "busca";
+			driver.findElement(By.id(texto)).sendKeys("God");
+			System.out.println(ANSI_GREEN + "✅ Inseriu texto - id: " + texto);
+			
+			Thread.sleep(1000);
+			
+			texto = "pes";
+			driver.findElement(By.id(texto)).click();
+			System.out.println(ANSI_GREEN + "✅ Clicou - id: " + texto);
+			
+			Thread.sleep(1000);
+			
+			texto = "stes";
+			driver.findElement(By.id(texto)).click();
+			System.out.println(ANSI_GREEN + "✅ Clicou - id: " + texto);
+			
+			Thread.sleep(1000);
+			
+			texto = "stes";
+			driver.findElement(By.id(texto)).click();
+			System.out.println(ANSI_GREEN + "✅ Clicou - id: " + texto);
+			
+			Thread.sleep(1000);
+			
+			texto = "ct1";
+			driver.findElement(By.id(texto)).click();
+			System.out.println(ANSI_GREEN + "✅ Clicou - id: " + texto);
+			
+			Thread.sleep(1000);
+			
+			System.out.println(ANSI_YELLOW + "PRIMEIRA SITUAÇÃO FINALIZADA!");
+			
+			System.out.println(ANSI_YELLOW + "SEGUNDA SITUAÇÃO INICIADA!");
+			
+			driver.manage().window().setSize(new Dimension(500,768));
+			System.out.println(ANSI_CYAN + "🖥️ Tela redimensionada: 500x768");
+			
+			Thread.sleep(1000);
+			
+			texto = "login";
+			driver.findElement(By.id(texto)).click();
+			System.out.println(ANSI_GREEN + "✅ Clicou - id: " + texto);
+			
+			Thread.sleep(1000);
+			
+			texto = "entrar";
+			driver.findElement(By.id(texto)).click();
+			System.out.println(ANSI_GREEN + "✅ Clicou - id: " + texto);
+			
+			Thread.sleep(1000);
+			
+			texto = "lg2";
+			driver.findElement(By.id(texto)).click();
+			System.out.println(ANSI_GREEN + "✅ Clicou - id: " + texto);
+			
+			Thread.sleep(1000);
+			
+			texto = "email";
+			driver.findElement(By.id(texto)).sendKeys("checkpoint2@gmail.com");
+			System.out.println(ANSI_GREEN + "✅ Inseriu texto - id: " + texto);
+			
+			texto = "senha";
+			driver.findElement(By.id(texto)).sendKeys("1234");
+			System.out.println(ANSI_GREEN + "✅ Inseriu texto - id: " + texto);
+			
+			texto = "cadastrar";
+			driver.findElement(By.id(texto)).click();
+			System.out.println(ANSI_GREEN + "✅ Clicou - id: " + texto);
+			
+			Thread.sleep(1000);
+			
+			texto = "lg";
+			driver.findElement(By.id(texto)).click();
+			System.out.println(ANSI_GREEN + "✅ Clicou - id: " + texto);
+			
+			Thread.sleep(1000);
+			
+			texto = "entrar";
+			driver.findElement(By.id(texto)).click();
+			System.out.println(ANSI_GREEN + "✅ Clicou - id: " + texto);
+			
+			Thread.sleep(3000);
+			
+			texto = "inicial";
+			driver.findElement(By.id(texto)).click();
+			System.out.println(ANSI_GREEN + "✅ Clicou - id: " + texto);
+			
+			System.out.println(ANSI_YELLOW + "SEGUNDA SITUAÇÃO FINALIZADA!");
+			
+			} 
+		
+		catch ( Exception e) 
+		    {
+			System.out.println(ANSI_RED + "FLUXO DE EXCEÇÃO!");
+			System.out.println(ANSI_PURPLE + "❌ ERRO-EXCEÇÃO: " + e.getClass() + " ELEMENTO: " + texto);
+			
+			driver.manage().window().maximize();
+			System.out.println(ANSI_CYAN + "🖥️ Tela redimensionada: MAX");
+			
+			texto = "#nav > li:nth-child(1) > a";
+			driver.findElement(By.cssSelector(texto)).click();
+			System.out.println(ANSI_GREEN + "✅ Clicou - rota: " + texto);
+			
+			System.out.println(ANSI_RED + "FLUXO DE EXCEÇÃO!");
+			}
+	}
+	
+	@After
+	
+	public void fim() {
+		driver.close();
+	}
+
+}
